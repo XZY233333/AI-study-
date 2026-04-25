@@ -2,13 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*.py",
-      "use": "flask"
+      "src": "api/upload.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/upload",
+      "dest": "api/upload.py"
+    },
+    {
+      "src": "/api/health",
       "dest": "api/upload.py"
     }
   ]
